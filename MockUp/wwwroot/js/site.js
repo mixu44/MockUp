@@ -28,7 +28,7 @@
 
 
         defaultView: 'agendaWeek',
-        height: 740,
+        height: 735,
         firstDay: 1,
 
 
@@ -39,19 +39,6 @@
 
 
 
-        },
-
-        eventDragStart: function (event, jsEvent, view) {
-            $('#calendar').bind('touchmove', function (e) { e.preventDefault() })
-        },
-        eventDragStop: function (event, jsEvent, view) {
-            $('#calendar').unbind('touchmove')
-        },
-        eventResizeStart: function (event, jsEvent, view) {
-            $('#calendar').bind('touchmove', function (e) { e.preventDefault() })
-        },
-        eventResizeStop: function (event, jsEvent, view) {
-            $('#calendar').unbind('touchmove')
         },
 
 
@@ -104,14 +91,38 @@
 
     })
 
+
+
+  
 });
 
 
 $(document).ready(function () {
+   
+    $(".teammates").select2({
+        placeholder: 'Choose a Label',
+    });
     
-    $(".teammates").select2();
 });
 
 $(document).ready(function () {
-    $(".assignment").select2();
+    $(".assignment").select2({
+        placeholder: 'Choose a Label',
+    });
 });
+
+
+$(document).ready(function () {
+
+    $(".projects").select2();
+
+});
+
+$(document).ready(function () {
+
+    $(".label").select2({
+        placeholder: 'Choose Label', 
+    });
+
+});
+
