@@ -6,7 +6,7 @@
         header: {
             left: 'title',
             center: '',
-            right: 'today prev,next agendaDay,agendaWeek,month '
+            right: 'today prev,next, agendaWeek,month, add_event, listDay'
         },
 
         dayClick: function (date, jsEvent, view) {
@@ -16,6 +16,18 @@
 
         },
 
+        customButtons: {
+            add_event: {
+                text: 'Day',
+                click: function () {
+
+                    $("#week").hide();
+                    $("#day").show();
+
+
+                }
+            }
+        },
 
         minTime: "07:00:00",
         maxTime: "21:00:00",
@@ -36,6 +48,7 @@
 
             $('#modalTitle').html(event.title);
             $('#modalAssignment').html(event.assignment);
+
 
 
 
@@ -87,22 +100,33 @@
 
             },
 
-            ]
+        ]
 
     })
 
+    $("#DayShow").click(function () {
+        $("#week").hide();
+        $("#day").show();
+
+    });
+    $("#WeekShow").click(function () {
+        $("#week").show();
+        $("#day").hide();
+
+    });
 
 
-  
+
+
 });
 
 
 $(document).ready(function () {
-   
+
     $(".teammates").select2({
         placeholder: 'Choose a Label',
     });
-    
+
 });
 
 $(document).ready(function () {
@@ -121,8 +145,9 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     $(".label").select2({
-        placeholder: 'Choose Label', 
+        placeholder: 'Choose Label',
     });
 
 });
+
 

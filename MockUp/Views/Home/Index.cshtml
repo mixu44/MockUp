@@ -4,13 +4,11 @@
 
 <div class="container-fluid" style="padding-left: 0px;">
     <div class="col-md-12 overskrift">
-        <div col-md-12>
+        <div class="col-md-12">
             <div class="col-md-1 img">
                 <img src="~/images/LOGO.jpg" style="width:200px; height: 100px;" />
             </div>
-            <div class="col-md-11" style="padding-left:60px;">
-                <h1 style="text-align: center;">TITS - Time Information Tracking System</h1>
-            </div>
+            
         </div>
         <div class="col-md-3" style="padding-left: 0 !important;">
             <div class="col-md-12" style="margin-top:50px;">
@@ -38,14 +36,27 @@
             <div class="col-md-12" style="margin-top:20px;">
                 <button type="button" class="btn btn-warning" style="width: 200px;">Start timer</button>
             </div>
+
+ 
+
+
+
+
         </div>
-        <div class="col-md-9">
-            <div id='calendar'></div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-info sendknap">Save</button>
+        <div class="col-md-9" id="calendarView">
+            <div id="week">
+                <div id='calendar'></div>
+
             </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-success sendknap">Submit for Approval</button>
+
+            <div class="col-md-12" id="day" style="display:none;">
+                @Html.Partial("_dateViewPartial")
+               
+
+            </div>
+
+            <div class="col-md-12">
+                <button type="button" class="btn btn-success submitButtom">Submit for Approval</button>
             </div>
         </div>
     </div>
