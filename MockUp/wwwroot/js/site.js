@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
 
-    // page is now ready, initialize the calendar...
+
 
     $('#calendar').fullCalendar({
         header: {
             left: 'title',
             center: '',
-            right: 'today prev,next, agendaWeek,month, add_event, listDay'
+            right: 'today prev,next, agendaWeek, month, add_event, listDay'
         },
 
         dayClick: function (date, jsEvent, view) {
@@ -15,6 +15,7 @@
             $('#calendar').fullCalendar('changeView', 'agendaDay');
 
         },
+
 
         customButtons: {
             add_event: {
@@ -35,6 +36,7 @@
 
         selectable: true,
         selectHelper: true,
+        editable: true,
 
 
 
@@ -53,8 +55,22 @@
 
 
         },
+        //theme: true,
 
 
+        slotEventOverlap: false,
+        eventDragStart: function (event, jsEvent, view) {
+            $('#calendar').bind('touchmove', function (e) { e.preventDefault() })
+        },
+        eventDragStop: function (event, jsEvent, view) {
+            $('#calendar').unbind('touchmove')
+        },
+        eventResizeStart: function (event, jsEvent, view) {
+            $('#calendar').bind('touchmove', function (e) { e.preventDefault() })
+        },
+        eventResizeStop: function (event, jsEvent, view) {
+            $('#calendar').unbind('touchmove')
+        },
 
         events: [
             {
@@ -103,17 +119,9 @@
         ]
 
     })
-
-    $("#DayShow").click(function () {
-        $("#week").hide();
-        $("#day").show();
-
-    });
-    $("#WeekShow").click(function () {
-        $("#week").show();
-        $("#day").hide();
-
-    });
+    //$('.fc-button').removeClass('.fc-state-active');
+    $('.fc-button').addClass('test');
+    //$('.fc-button').addClass('btn btn-info').appendTo('.fc-header-right').append('fc-Buttons');
 
 
 
@@ -121,11 +129,14 @@
 });
 
 
+
+
 $(document).ready(function () {
 
     $(".teammates").select2({
         placeholder: 'Choose a Label',
     });
+
 
 });
 
